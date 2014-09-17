@@ -1,2 +1,9 @@
 <h1>Twis</h1>
-<!--<p><%= @data %></p>-->
+<p>
+<table>
+<tr><th>date</th><th>count</th></tr>
+<% @log.each do |element| %>
+<tr><td><%= element.date %></td><td><%= element.count %></td></tr>
+<% end %>
+</table>
+</p>

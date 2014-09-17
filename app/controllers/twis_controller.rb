@@ -2,6 +2,6 @@
 
 class TwisController < ApplicationController
   def index
-    # @data = Twi.all
+    @log = Logs.all
   end
 end
