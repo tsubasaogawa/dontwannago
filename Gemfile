@@ -46,3 +46,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin]
 
 # twitter
 gem 'twitter'
+
+# chartkick
+gem 'chartkick'
+# gem 'groupdate'
