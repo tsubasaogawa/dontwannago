@@ -1,5 +1,5 @@
 # coding: utf-8 #
-SEARCH_QUERY = "(学校 OR 仕事 OR 会社) AND (行きたく or いきたく)"
+SEARCH_QUERY = "(学校 OR 仕事 OR 会社) AND (行きたくない OR いきたくない OR 行きたくね OR いきたくね)"
 
 task :get_twilog => :environment do
   puts 'Get tweets...'
