@@ -1,5 +1,5 @@
 # coding: utf-8 #
-SEARCH_QUERY = "(学校 OR 仕事 OR 会社) 行きたくない"
+SEARCH_QUERY = "(学校 OR 仕事 OR 会社) AND (行きたく or いきたく)"
 
 task :get_twilog => :environment do
   puts 'Get tweets...'
@@ -15,7 +15,7 @@ task :get_twilog => :environment do
   end
 
   count = 0
-  total_followers_count = 0
+  # total_followers_count = 0
   max_id = nil
 
   begin
@@ -26,7 +26,7 @@ task :get_twilog => :environment do
         break
       end
       count += 1
-      total_followers_count += tweet.user.followers_count
+      # total_followers_count += tweet.user.followers_count
       max_id = tweet.id
     end
   end while max_id != nil
@@ -35,5 +35,5 @@ task :get_twilog => :environment do
   tweet = Log.new(:date => now, :count => count)
   tweet.save
   
-  puts 'Done.'
+  puts "Done. (#{$count} tweets)"
 end
