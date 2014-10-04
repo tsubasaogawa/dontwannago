@@ -4,7 +4,7 @@ class LogsController < ApplicationController
   # GET /logs
   # GET /logs.json
   def index
-    @log = Log.all
+    @logs = Logs.all
   end
 
   # GET /logs/1

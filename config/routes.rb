@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
+  resources :logs
 
   # get 'twis/tweetget'
 
   root :to => 'twis#index'
-  resources :logs
 
   get 'twis/index'
+  
   # get 'twis/add'
   # post 'twis' => 'twis#create'
 
