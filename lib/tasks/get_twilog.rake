@@ -1,5 +1,5 @@
 # coding: utf-8 #
-SEARCH_QUERY = "(学校 OR 仕事 OR 会社) AND (行きたくない OR いきたくない OR 行きたくね OR いきたくね)"
+SEARCH_QUERY = "(学校 OR 仕事 OR 会社) AND (行きたくない OR いきたくない)"
 
 task :get_twilog => :environment do
   puts 'Get tweets...'
@@ -21,6 +21,8 @@ task :get_twilog => :environment do
   begin
     client.search(SEARCH_QUERY, lang: :ja, locale: :ja, max_id: max_id).each do |tweet|
       next if tweet.created_at >= 1.day.since.beginning_of_day
+	  next if tweet.retweeted == false
+	  
       if tweet.created_at < Time.now.beginning_of_day
         max_id = nil
         break
