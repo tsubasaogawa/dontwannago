@@ -21,7 +21,7 @@ task :get_twilog => :environment do
   begin
     client.search(SEARCH_QUERY, lang: :ja, locale: :ja, max_id: max_id).each do |tweet|
       next if tweet.created_at >= 1.day.since.beginning_of_day
-	  next if tweet.retweeted == false
+	  next if tweet.retweeted
 	  
       if tweet.created_at < Time.now.beginning_of_day
         max_id = nil
