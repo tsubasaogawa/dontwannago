@@ -1,12 +1,18 @@
-<h1>I don't wanna go there</h1>
 <p>
+<!--
 <table>
 <tr><th>date</th><th>count</th></tr>
 <% @log.each do |element| %>
 <tr><td><%= element.date %></td><td><%= element.count %></td></tr>
 <% end %>
-<%= line_chart @chart_data %>
 </table>
+-->
+<%= line_chart @chart_data,
+      :library => {
+	    :vAxis => { :title => '# of annoy people' },
+		:backgroundColor => { :stroke => '#000000', :strokeWidth => 1, :fill => '#f2f2e2' }
+	  }
+%>
 </p>
 <hr>
 <h2>Recent Annoy People</h2>
