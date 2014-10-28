@@ -49,5 +49,5 @@ task :get_twilog => :environment do
   puts "Done. (#{$count} tweets)"
   
   # tweeting to my account
-  client.update "#{now.month}月#{now.day}日の登校/出社拒否人数は  #{count} 人でした。"
+  client.update "#{now.month}月#{now.day}日の学校や会社に行きたくない人は #{count} 人いました。"
 end
