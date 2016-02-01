@@ -12,9 +12,12 @@
       <h1><a href="/">I don't wanna go there</a></h1>
       <div id="user-navigation">
         <ul class="wat-cf">
-          <li><a href="#"><%= t("web-app-theme.profile", :default => "Profile") %></a></li>
+		  <!--
+		  <li><a href="#"><%= t("web-app-theme.profile", :default => "Profile") %></a></li>
           <li><a href="#"><%= t("web-app-theme.settings", :default => "Settings") %></a></li>
           <li><a href="/logout" class="logout"><%= t("web-app-theme.logout", :default => "Logout") %></a></li>
+		  -->
+		  <li>Are you a person who wants to stay home?</li>
         </ul>
       </div>
       <div id="main-navigation">
@@ -33,7 +36,7 @@
         <%= yield %>
         <div id="footer">
           <div class="block">
-            <p>Copyright &copy; <%= Time.now.year %> I don't wanna go there.</p>
+            <p>Copyright &copy; <%= Time.now.year %> <a href="http://ogatube.com/">Tsubasa Ogawa</a>.</p>
           </div>      
         </div>
       </div>
