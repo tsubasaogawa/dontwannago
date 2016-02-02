@@ -7,7 +7,7 @@ class TwisController < ApplicationController
     @log = Logs.all
     # @chart_data = Logs.all.order('date').group(:date).sum(:count)
     days = get_daycount(0, Logs.all.count)
-    days = 0 if days == -1 # error function FIXME
+    # if days == -1 # error function FIXME
     @chart_data = Logs.select(:date, :count).limit(days).order(date: :desc).pluck(:date, :count)
   end
 
@@ -15,7 +15,7 @@ class TwisController < ApplicationController
   def get_daycount(min, max)
     days = params[:days].to_i
     if days <= min or days > max
-      -1
+      7
     end
     days
   end
