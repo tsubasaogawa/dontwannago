@@ -16,7 +16,8 @@ class TwisController < ApplicationController
     days = params[:days].to_i
     if days <= min or days > max
       7
+    else
+      days
     end
-    days
   end
 end
