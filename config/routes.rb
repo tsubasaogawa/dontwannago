@@ -6,7 +6,8 @@ Rails.application.routes.draw do
   root :to => 'twis#index'
 
   get 'twis/index'
-  
+  get 'twis/index/:days' => 'twis#index'
+
   # get 'twis/add'
   # post 'twis' => 'twis#create'
 

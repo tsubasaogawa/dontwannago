@@ -5,7 +5,9 @@
 class TwisController < ApplicationController
   def index
     @log = Logs.all
-	# @chart_data = Logs.all.order('date').group(:date).sum(:count)
-	@chart_data = Logs.select(:date, :count).limit(5).order(date: :desc).pluck(:date, :count)
+    # @chart_data = Logs.all.order('date').group(:date).sum(:count)
+    days = params[:days].to_i
+    end if days <= 0 or days > 365
+    @chart_data = Logs.select(:date, :count).limit(days).order(date: :desc).pluck(:date, :count)
   end
 end
