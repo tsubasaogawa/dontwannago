@@ -1,12 +1,10 @@
+<p id="day_selector">
+scope: last 
+<a href="/twis/index/7">a week</a> / 
+<a href="/twis/index/31">a month</a> / 
+<a href="/twis/index/365">a year</a>
+</p>
 <p>
-<!--
-<table>
-<tr><th>date</th><th>count</th></tr>
-<% @log.each do |element| %>
-<tr><td><%= element.date %></td><td><%= element.count %></td></tr>
-<% end %>
-</table>
--->
 <%= line_chart @chart_data,
       :library => {
 	    :vAxis => { :title => '# of annoy people' },
