@@ -43,9 +43,9 @@ task :get_twilog => :environment do
   end while max_id != nil
 
   # save to db
-  # now = Date::today
-  # tweet = Log.new(:date => now, :count => count)
-  # tweet.save
+  now = Date::today
+  tweet = Log.new(:date => now, :count => count)
+  tweet.save
   
   # calculate deviation
   mean = Logs.average(:count)
@@ -60,5 +60,5 @@ task :get_twilog => :environment do
 
   puts "Done. (#{count} tweets; deviation: #{deviation.round})"
 
-  # client.update "#{now.month}月#{now.day}日の学校や会社に行きたくない人は #{count} 人いました。 (偏差値: #{deviation.round})"
+  client.update "#{now.month}月#{now.day}日の学校や会社に行きたくない人は #{count} 人いました。 (偏差値: #{deviation.round})"
 end
