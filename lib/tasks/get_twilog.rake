@@ -33,7 +33,7 @@ task :get_twilog => :environment do
 	
   rescue Twitter::Error::TooManyRequests
     puts "rate limit."
-	sleep 60*15
+	  sleep 60*15
     retry
 
   rescue Twitter::Error::ClientError
@@ -42,12 +42,23 @@ task :get_twilog => :environment do
 	
   end while max_id != nil
 
+  # save to db
   now = Date::today
-  tweet = Log.new(:date => now, :count => count)
-  tweet.save
+  # tweet = Log.new(:date => now, :count => count)
+  # tweet.save
   
-  puts "Done. (#{$count} tweets)"
-  
-  # tweeting to my account
-  client.update "#{now.month}月#{now.day}日の学校や会社に行きたくない人は #{count} 人いました。"
+  # calculate deviation
+  mean = Logs.average(:count)
+  variance = 0.0
+  n = 0
+  Logs.find_each do |data|
+    variance += data.count * data.count
+    n += 1
+  end
+  variance = (variance / n) - (mean * mean)
+  deviation = (count - mean) / (variance ** 0.5) * 10 + 50
+
+  puts "Done. (#{$count} tweets; deviation= #{deviation})"
+
+  # client.update "#{now.month}月#{now.day}日の学校や会社に行きたくない人は #{count} 人いました。 (偏差値: #{deviation})"
 end
