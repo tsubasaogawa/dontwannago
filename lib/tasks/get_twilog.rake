@@ -1,4 +1,5 @@
-# coding: utf-8 #
+# coding: utf-8
+
 SEARCH_QUERY = "(学校 OR 仕事 OR 会社) AND (行きたくない OR いきたくない) exclude:retweets"
 
 task :get_twilog => :environment do
@@ -8,10 +9,10 @@ task :get_twilog => :environment do
   require "active_support/time"
 	
   client = Twitter::REST::Client.new do |config|
-    config.consumer_key = "0tvANBAfxBp718sb68ZvKjTYs"
-    config.consumer_secret = "MRcqb97JHfEb546WWVleb9N5lABEIZFVmVyYut2o8PGeh3MaGc"
-    config.access_token = "2862817016-cY8emrwwzZT7OUUsH8hSNuCzxfwNF3JHWwGKR2X"
-    config.access_token_secret = "enrZFfi7x4woOQ1mrVVsYPChOKE4OujzbwlK8zoTZK2mz"
+    config.consumer_key = ENV['CS_KEY']
+    config.consumer_secret = ENV['CS_SECRET']
+    config.access_token = ENV['ACCESS_TOKEN']
+    config.access_token_secret = ENV['TOKEN_SECRET']
   end
 
   count = 0
