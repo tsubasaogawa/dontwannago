@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
-ruby '1.9.3'
+# ruby '1.9.3'
+ruby '2.3.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.6'
@@ -51,7 +52,9 @@ gem 'chartkick'
 # gem 'groupdate'
 
 gem 'web-app-theme'
-#gem 'therubyracer'
+gem 'therubyracer'
 # gem 'libv8', '~> 3.11.8.17'
 #gem 'less-rails' # 
 #gem 'twitter-bootstrap-rails' # Bootstrap
+
+gem 'dotenv-rails'
